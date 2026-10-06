@@ -11,19 +11,15 @@ namespace Okosotthon
         private bool onlineE;
         private DateTime utolsoFrissites;
 
-
         public OkosEszkoz(string azonosito, string nev)
         {
-
             throw new NotImplementedException();
         }
-
 
         public void Csatlakozas()
         {
             throw new NotImplementedException();
         }
-
 
         public void KapcsolatBontasa()
         {
@@ -38,7 +34,6 @@ namespace Okosotthon
         {
             throw new NotImplementedException();
         }
-
 
         public abstract void ParancsVegrehajtasa(string parancs);
         public abstract string AllapotJelentes();
