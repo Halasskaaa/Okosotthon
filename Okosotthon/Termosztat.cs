@@ -31,7 +31,14 @@ namespace Okosotthon
 
         protected override bool OnTesztFuttatasa()
         {
-            return this.CelHomerseklet ;
+            if (this.CelHomerseklet1 > 5.0 && this.CelHomerseklet1 < 35.0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
     }
