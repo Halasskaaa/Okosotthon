@@ -6,10 +6,17 @@ namespace Okosotthon
 {
     public class Termosztat : OkosEszkoz
     {
+        private double JelenlegiHomerseklet;
+        private double CelHomerseklet;
+
+        public double JelenlegiHomerseklet1 { get => JelenlegiHomerseklet; private set => JelenlegiHomerseklet = value; }
+        public double CelHomerseklet1 { get => CelHomerseklet; private set => CelHomerseklet = value; }
+
         public Termosztat(string azonosito, string nev, double celHomerseklet)
         : base(azonosito, nev)
         {
-            throw new NotImplementedException();
+            JelenlegiHomerseklet = 21.0;
+            this.CelHomerseklet = celHomerseklet;
         }
 
         public override void ParancsVegrehajtasa(string parancs)
@@ -19,13 +26,14 @@ namespace Okosotthon
 
         public override string AllapotJelentes()
         {
-            throw new NotImplementedException();
+            return $"Jelenlegi hőmérséklet: {this.JelenlegiHomerseklet1} °C, Cél hőmérséklet: {this.CelHomerseklet1} °C";
         }
 
         protected override bool OnTesztFuttatasa()
         {
-            throw new NotImplementedException();
+            return this.CelHomerseklet ;
         }
 
     }
 }
+
