@@ -36,7 +36,8 @@ namespace Okosotthon
         {
             if (this.OnlineE)
             {
-                return this.OnTesztFuttatasa();
+                this.OnTesztFuttatasa();
+                return true; //I think there is a problem here somewhere
             }
             else
             {

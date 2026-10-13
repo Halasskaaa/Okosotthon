@@ -22,12 +22,13 @@ namespace Okosotthon
 
         public override void ParancsVegrehajtasa(string parancs)
         {
-            const string parancsE = "BEALLIT_HOMERSEKLET:";
+            string parancsE = "BEALLIT_HOMERSEKLET:";
 
             if (parancs != null || parancs.StartsWith(parancsE))
             {
                 string ertek = parancs.Substring(parancsE.Length);
-                this.CelHomerseklet = Convert.ToDouble(ertek);            }
+                this.CelHomerseklet = Convert.ToDouble(ertek);
+            }
         }
 
         public override string AllapotJelentes()
