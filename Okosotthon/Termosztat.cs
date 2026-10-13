@@ -46,7 +46,6 @@ namespace Okosotthon
                 return false;
             }
         }
-
     }
 }
 
