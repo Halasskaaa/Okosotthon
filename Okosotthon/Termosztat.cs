@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection.Metadata;
 using System.Text;
 
 namespace Okosotthon
@@ -15,13 +16,18 @@ namespace Okosotthon
         public Termosztat(string azonosito, string nev, double celHomerseklet)
         : base(azonosito, nev)
         {
-            JelenlegiHomerseklet = 21.0;
+            this.JelenlegiHomerseklet = 21.0;
             this.CelHomerseklet = celHomerseklet;
         }
 
         public override void ParancsVegrehajtasa(string parancs)
         {
-            throw new NotImplementedException();
+            const string parancsE = "BEALLIT_HOMERSEKLET:";
+
+            if (parancs != null || parancs.StartsWith(parancsE))
+            {
+                string ertek = parancs.Substring(parancsE.Length);
+                this.CelHomerseklet = Convert.ToDouble(ertek);            }
         }
 
         public override string AllapotJelentes()
