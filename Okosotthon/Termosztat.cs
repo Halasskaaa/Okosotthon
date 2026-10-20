@@ -6,10 +6,12 @@ using System.Globalization;
 
 namespace Okosotthon
 {
-    public class Termosztat : OkosEszkoz
+    public class Termosztat : OkosEszkoz, IIdozitheto, IStatisztika
     {
         private double jelenlegiHomerseklet;
         private double celHomerseklet;
+        private DateTime idozitesVege;
+        private bool idozitesAktiv;
 
         public double JelenlegiHomerseklet
         {
@@ -53,6 +55,34 @@ namespace Okosotthon
         protected override bool OnTesztFuttatasa()
         {
             return this.CelHomerseklet > 5.0 && this.CelHomerseklet < 35.0;
+        }
+
+        public void IdozitestBeallit(int perc)
+        {
+            idozitesVege = DateTime.Now.AddMinutes(perc);
+            idozitesAktiv = true;
+        }
+        public int GetMaradtIdo()
+        {
+            if (!idozitesAktiv)
+            {
+                return 0;
+            }
+            
+            double maradekPerc = (idozitesVege - DateTime.Now).TotalMinutes;
+
+            if (maradekPerc <= 0)
+            {
+                idozitesAktiv = false;
+                return 0;
+            }
+
+            return (int)Math.Ceiling(maradekPerc);
+        }
+
+        public string StatisztikatKeszit()
+        {
+            return $"Termosztát statisztika: Jelenlegi hőmérséklet: {JelenlegiHomerseklet} °C, Célhőmérséklet: {CelHomerseklet} °C.";
         }
     }
 }
