@@ -4,8 +4,8 @@ using System.Text;
 
 namespace Okosotthon
 {
-    internal interface IStatisztika
+    public interface IStatisztika
     {
-        string StatisztikaKeszit();
+        string StatisztikatKeszit();
     }
 }

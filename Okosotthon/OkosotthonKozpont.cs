@@ -35,5 +35,30 @@ namespace Okosotthon
 
             return sikeresTesztek;
         }
+
+        public void OsszesVeszjelzesInditasa()
+        {
+            foreach (OkosEszkoz eszkoz in eszkozok)
+            {
+                if (eszkoz is IHangjelzo h)
+                {
+                    h.VeszjelzesInditasa();
+                }
+            }
+        }
+
+        public List<string> OsszesStatisztikaLekerdezese()
+        {
+            List<string> statisztikak = new List<string>();
+
+            foreach (OkosEszkoz eszkoz in eszkozok)
+            {
+                if (eszkoz is IStatisztika s)
+                {
+                    statisztikak.Add(s.StatisztikatKeszit());
+                }
+            }
+            return statisztikak;
+        }
     }
 }

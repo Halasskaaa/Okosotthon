@@ -4,9 +4,9 @@ using System.Text;
 
 namespace Okosotthon
 {
-    internal interface IHangjelzo
+    public interface IHangjelzo
     {
-        ConsoleKeyInfo Csipog(int hosszu);
+        void Csipog(int hosszu);
         void VeszjelzesInditasa();
     }
 }

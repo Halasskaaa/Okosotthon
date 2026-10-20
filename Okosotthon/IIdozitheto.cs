@@ -4,9 +4,9 @@ using System.Text;
 
 namespace Okosotthon
 {
-    internal interface IIdozitheto
+    public interface IIdozitheto
     {
-        void IdozitesBeallit(int perc);
+        void IdozitestBeallit(int perc);
         int GetMaradtIdo();
     }
 }
