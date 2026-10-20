@@ -64,47 +64,47 @@ public class OkosotthonTesztek
         Assert.That(eredmeny, Is.False);
     }
 
-    //[Test]
-    //public void Termosztat_ParancsVegrehajtasa_FrissitiACelHomersekletet()
-    //{
-    //    this.termosztat.ParancsVegrehajtasa("BEALLIT_HOMERSEKLET:24.5");
-    //    Assert.That(this.termosztat.CelHomerseklet, Is.EqualTo(24.5));
-    //}
+    [Test]
+    public void Termosztat_ParancsVegrehajtasa_FrissitiACelHomersekletet()
+    {
+        this.termosztat.ParancsVegrehajtasa("BEALLIT_HOMERSEKLET:24.5");
+        Assert.That(this.termosztat.CelHomerseklet, Is.EqualTo(24.5));
+    }
 
-    //[Test]
-    //public void OkosZar_Kezdetben_ZartAllapotbanVan()
-    //{
-    //    Assert.That(this.okosZar.ZartE, Is.True);
-    //}
+    [Test]
+    public void OkosZar_Kezdetben_ZartAllapotbanVan()
+    {
+        Assert.That(this.okosZar.ZartE, Is.True);
+    }
 
-    //[Test]
-    //public void OkosZar_HelyesPinkoddal_Kinyilik()
-    //{
-    //    this.okosZar.ParancsVegrehajtasa("NYITAS:1234");
-    //    Assert.That(this.okosZar.ZartE, Is.False);
-    //}
+    [Test]
+    public void OkosZar_HelyesPinkoddal_Kinyilik()
+    {
+        this.okosZar.ParancsVegrehajtasa("NYITAS:1234");
+        Assert.That(this.okosZar.ZartE, Is.False);
+    }
 
-    //[Test]
-    //public void OkosZar_HelytelenPinkoddal_ZarvaMarad()
-    //{
-    //    this.okosZar.ParancsVegrehajtasa("NYITAS:0000");
-    //    Assert.That(this.okosZar.ZartE, Is.True);
-    //}
+    [Test]
+    public void OkosZar_HelytelenPinkoddal_ZarvaMarad()
+    {
+        this.okosZar.ParancsVegrehajtasa("NYITAS:0000");
+        Assert.That(this.okosZar.ZartE, Is.True);
+    }
 
-    //[Test]
-    //public void OkosZar_GyariBeallitasok_VisszaallitjaAPinkodotEsBezar()
-    //{
-    //    this.okosZar.ParancsVegrehajtasa("NYITAS:1234");
-    //    Assert.That(this.okosZar.ZartE, Is.False);
+    [Test]
+    public void OkosZar_GyariBeallitasok_VisszaallitjaAPinkodotEsBezar()
+    {
+        this.okosZar.ParancsVegrehajtasa("NYITAS:1234");
+        Assert.That(this.okosZar.ZartE, Is.False);
 
-    //    this.okosZar.GyariBeallitasokVisszaallitasa();
+        this.okosZar.GyariBeallitasokVisszaallitasa();
 
-    //    Assert.That(this.okosZar.ZartE, Is.True);
+        Assert.That(this.okosZar.ZartE, Is.True);
 
-    //    // Az új alapértelmezett PIN-kódnak ("0000") működnie kell
-    //    this.okosZar.ParancsVegrehajtasa("NYITAS:0000");
-    //    Assert.That(this.okosZar.ZartE, Is.False);
-    //}
+        // Az új alapértelmezett PIN-kódnak ("0000") működnie kell
+        this.okosZar.ParancsVegrehajtasa("NYITAS:0000");
+        Assert.That(this.okosZar.ZartE, Is.False);
+    }
 
     [Test]
     public void Kozpont_OsszesCsatlakoztatasa_MindenEszkoztOnlineRendreAllit()

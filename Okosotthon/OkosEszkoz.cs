@@ -34,15 +34,12 @@ namespace Okosotthon
         }
         public bool DiagnosztikaFuttatasa()
         {
-            if (this.OnlineE)
-            {
-                this.OnTesztFuttatasa();
-                return true; //I think there is a problem here somewhere
-            }
-            else
+            if (!this.OnlineE)
             {
                 return false;
             }
+
+            return this.OnTesztFuttatasa();
         }
 
         public virtual void GyariBeallitasokVisszaallitasa()

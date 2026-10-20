@@ -2,19 +2,28 @@
 using System.Collections.Generic;
 using System.Reflection.Metadata;
 using System.Text;
+using System.Globalization;
 
 namespace Okosotthon
 {
     public class Termosztat : OkosEszkoz
     {
-        private double JelenlegiHomerseklet;
-        private double CelHomerseklet;
+        private double jelenlegiHomerseklet;
+        private double celHomerseklet;
 
-        public double JelenlegiHomerseklet1 { get => JelenlegiHomerseklet; private set => JelenlegiHomerseklet = value; }
-        public double CelHomerseklet1 { get => CelHomerseklet; private set => CelHomerseklet = value; }
+        public double JelenlegiHomerseklet
+        {
+            get => jelenlegiHomerseklet;
+            private set => jelenlegiHomerseklet = value;
+        }
 
-        public Termosztat(string azonosito, string nev, double celHomerseklet)
-        : base(azonosito, nev)
+        public double CelHomerseklet
+        {
+            get => celHomerseklet;
+            private set => celHomerseklet = value;
+        }
+
+        public Termosztat(string azonosito, string nev, double celHomerseklet) : base(azonosito, nev)
         {
             this.JelenlegiHomerseklet = 21.0;
             this.CelHomerseklet = celHomerseklet;
@@ -24,29 +33,26 @@ namespace Okosotthon
         {
             string parancsE = "BEALLIT_HOMERSEKLET:";
 
-            if (parancs != null || parancs.StartsWith(parancsE))
+            if (parancs != null && parancs.StartsWith(parancsE))
             {
                 string ertek = parancs.Substring(parancsE.Length);
-                this.CelHomerseklet = Convert.ToDouble(ertek);
+
+                if (double.TryParse(ertek, NumberStyles.Float,
+                    CultureInfo.InvariantCulture, out double homerseklet))
+                {
+                    this.CelHomerseklet = homerseklet;
+                }
             }
         }
 
         public override string AllapotJelentes()
         {
-            return $"Jelenlegi hőmérséklet: {this.JelenlegiHomerseklet1} °C, Cél hőmérséklet: {this.CelHomerseklet1} °C";
+            return $"Jelenlegi hőmérséklet: {this.JelenlegiHomerseklet} °C, Cél hőmérséklet: {this.CelHomerseklet} °C";
         }
 
         protected override bool OnTesztFuttatasa()
         {
-            if (this.CelHomerseklet1 > 5.0 && this.CelHomerseklet1 < 35.0)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return this.CelHomerseklet > 5.0 && this.CelHomerseklet < 35.0;
         }
     }
 }
-

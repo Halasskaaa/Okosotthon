@@ -5,16 +5,13 @@ using System.Threading.Channels;
 
 namespace Okosotthon
 {
-    public class OkosZar: OkosEszkoz
+    public class OkosZar : OkosEszkoz
     {
-        private bool ZartE;
         private string pinKod;
-
-        public bool ZartE1 { get; private set; }
-        public string PinKod;
+        public bool ZartE { get; private set; }
 
         public OkosZar(string azonosito, string nev, string pinKod)
-        : base(azonosito, nev)
+            : base(azonosito, nev)
         {
             this.ZartE = true;
             this.pinKod = pinKod;
@@ -29,11 +26,12 @@ namespace Okosotthon
             else if (parancs != null && parancs.StartsWith("NYITAS:"))
             {
                 string megadottPin = parancs.Substring("NYITAS:".Length);
+
                 if (megadottPin == this.pinKod)
                 {
                     this.ZartE = false;
                 }
-            }          
+            }
         }
 
         public override string AllapotJelentes()

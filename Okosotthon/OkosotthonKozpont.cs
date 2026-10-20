@@ -26,7 +26,11 @@ namespace Okosotthon
             int sikeresTesztek = 0;
             foreach (OkosEszkoz eszkoz in eszkozok)
             {
-                sikeresTesztek++ ;
+                if (eszkoz.DiagnosztikaFuttatasa())
+                {
+                    sikeresTesztek++ ;
+                }
+                
             }
 
             return sikeresTesztek;
